@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 LIBFT_DIR = libft/
 INCLUDE = ./libft/libft.a
 
-SRCS = push_swap.c parse.c
+SRCS = push_swap.c parse.c stack.c error.c
 
 OBJS = $(SRCS:.c=.o)
 

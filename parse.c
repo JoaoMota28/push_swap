@@ -6,14 +6,13 @@
 /*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:19:29 by jomanuel          #+#    #+#             */
-/*   Updated: 2025/01/19 19:04:03 by jomanuel         ###   ########.fr       */
+/*   Updated: 2025/01/20 16:52:55 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-void	split_case(int *argc, char ***argv)
+int	split_case(int *argc, char ***argv)
 {
 	char	**array;
 	int		i;
@@ -26,11 +25,13 @@ void	split_case(int *argc, char ***argv)
 			i++;
 		*argc = i;
 		*argv = array;
+		return (1);
 	}
 	else
 	{
 		*argc = *argc - 1;
 		*argv = *argv + 1;
+		return (0);
 	}
 }
 
@@ -100,10 +101,31 @@ int	validation(int argc, char **argv)
 	return (1);
 }
 
-/*int main(void)
+t_stack	*parse_args(int argc, char **argv)
 {
-	printf("%d = 1\n", is_valid_arg("2147483647"));
-	printf("%d = 1\n", is_valid_arg("-2147483648"));
-	printf("%d = 0\n", is_valid_arg("2147483648"));
-	printf("%d = 0\n", is_valid_arg("-2147483649"));
-}*/
+	int		i;
+	int		number;
+	t_stack	*stack_a;
+	int		mode;
+
+	i = 0;
+	mode = split_case(&argc, &argv);
+	if (!validation(argc, argv))
+	{
+		if (mode == 1)
+			freeall(argv);
+		terminate(1);
+	}
+	stack_a = NULL;
+	while (i < argc)
+	{
+		number = ft_atoi(argv[i]);
+		if (mode == 1)
+			free(argv[i]);
+		i++;
+		stack_append(&stack_a, stack_new(number));
+	}
+	if (mode == 1)
+		free(argv);
+	return (stack_a);
+}

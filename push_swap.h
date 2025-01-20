@@ -6,7 +6,7 @@
 /*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 12:42:36 by jomanuel          #+#    #+#             */
-/*   Updated: 2025/01/19 19:00:41 by jomanuel         ###   ########.fr       */
+/*   Updated: 2025/01/20 16:50:39 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,16 @@ typedef struct s_stack
 	int				content;
 	int				index;
 	struct s_stack	*next;
-	struct s_stack	*prev;
 
 }	t_stack;
 
 int		is_valid_arg(char *str);
 int		check_dupes(int argc, char **argv);
 int		validation(int argc, char **argv);
-void	split_case(int *argc, char ***argv);
+int		split_case(int *argc, char ***argv);
+t_stack	*parse_args(int argc, char **argv);
+void	terminate(int code);
+t_stack	*stack_new(int number);
+void	stack_append(t_stack **stack, t_stack *new);
 
 #endif
