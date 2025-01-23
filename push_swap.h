@@ -6,7 +6,7 @@
 /*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 12:42:36 by jomanuel          #+#    #+#             */
-/*   Updated: 2025/01/20 16:50:39 by jomanuel         ###   ########.fr       */
+/*   Updated: 2025/01/23 12:28:43 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 typedef struct s_stack
 {
 	int				content;
-	int				index;
 	struct s_stack	*next;
 
 }	t_stack;
@@ -37,5 +36,19 @@ t_stack	*parse_args(int argc, char **argv);
 void	terminate(int code);
 t_stack	*stack_new(int number);
 void	stack_append(t_stack **stack, t_stack *new);
+int		stack_len(t_stack **stack);
+void	sa(t_stack **stack);
+void	sb(t_stack **stack);
+void	ss(t_stack **stack_a, t_stack **stack_b);
+void	stack_add_front(t_stack **stack, t_stack *new);
+void	pa(t_stack **stack_a, t_stack **stack_b);
+void	pb(t_stack **stack_a, t_stack **stack_b);
+void	freestack(t_stack **stack);
+void	ra(t_stack **stack_a);
+void	rb(t_stack **stack_b);
+void	rr(t_stack **stack_a, t_stack **stack_b);
+void	rra(t_stack **stack_a);
+void	rrb(t_stack **stack_b);
+void	rrr(t_stack **stack_a, t_stack **stack_b);
 
 #endif

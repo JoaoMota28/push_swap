@@ -6,7 +6,7 @@
 /*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:50:19 by jomanuel          #+#    #+#             */
-/*   Updated: 2025/01/20 16:48:23 by jomanuel         ###   ########.fr       */
+/*   Updated: 2025/01/23 11:47:43 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ t_stack	*stack_new(int number)
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (new == NULL)
 		return (NULL);
-	new->index = 0;
 	new->content = number;
 	new->next = NULL;
 	return (new);
@@ -38,4 +37,41 @@ void	stack_append(t_stack **stack, t_stack *new)
 	while (tmp->next != NULL)
 		tmp = tmp->next;
 	tmp->next = new;
+}
+
+int	stack_len(t_stack **stack)
+{
+	t_stack	*tmp;
+	int		size;
+
+	tmp = *stack;
+	size = 0;
+	while (tmp != NULL)
+	{
+		size++;
+		tmp = tmp->next;
+	}
+	return (size);
+}
+
+void	stack_add_front(t_stack **stack, t_stack *new)
+{
+	t_stack	*newstack;
+
+	newstack = new;
+	newstack->next = *stack;
+	*stack = newstack;
+}
+
+void	freestack(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	tmp = *stack;
+	while (tmp != NULL)
+	{
+		*stack = tmp->next;
+		free(tmp);
+		tmp = *stack;
+	}
 }
