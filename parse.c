@@ -6,7 +6,7 @@
 /*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:19:29 by jomanuel          #+#    #+#             */
-/*   Updated: 2025/01/20 16:52:55 by jomanuel         ###   ########.fr       */
+/*   Updated: 2025/01/24 16:12:56 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,14 @@ int	check_dupes(int argc, char **argv)
 {
 	int	i;
 	int	j;
-	int	n;
 
 	i = 0;
 	while (i < argc)
 	{
 		j = i + 1;
-		n = ft_strlen(argv[i]);
 		while (j < argc)
 		{
-			if (ft_strncmp(argv[i], argv[j], n) == 0)
+			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
 				return (0);
 			j++;
 		}

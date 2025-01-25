@@ -6,7 +6,7 @@
 /*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 12:42:36 by jomanuel          #+#    #+#             */
-/*   Updated: 2025/01/23 12:28:43 by jomanuel         ###   ########.fr       */
+/*   Updated: 2025/01/24 16:18:20 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,7 @@ void	rr(t_stack **stack_a, t_stack **stack_b);
 void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
+void	sort_three(t_stack **stack_a);
+void	sort_two(t_stack **stack_a);
 
 #endif
