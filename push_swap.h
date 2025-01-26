@@ -6,7 +6,7 @@
 /*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 12:42:36 by jomanuel          #+#    #+#             */
-/*   Updated: 2025/01/24 16:18:20 by jomanuel         ###   ########.fr       */
+/*   Updated: 2025/01/26 20:13:57 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,11 @@
 typedef struct s_stack
 {
 	int				content;
+	int				index;
+	int				cost;
+	int				times;
+	int				flag;
 	struct s_stack	*next;
-
 }	t_stack;
 
 int		is_valid_arg(char *str);
@@ -51,6 +54,16 @@ void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 void	sort_three(t_stack **stack_a);
-void	sort_two(t_stack **stack_a);
+void	sort_two(t_stack **stack);
+void	update_index(t_stack **stack);
+int		ft_abs(int	val);
+int		ft_bigger(int val1, int val2);
+void	turk_sort(t_stack **stack_a, t_stack **stack_b);
+void	update_cost(t_stack **stack_src, t_stack **stack_dst);
+void	rotate_stacks(t_stack **stack_a, t_stack **stack_b);
+int		is_sorted(t_stack **stack);
+int		max_value(t_stack **stack);
+int		min_value(t_stack **stack);
+int		last_cont(t_stack **stack);
 
 #endif

@@ -6,19 +6,19 @@
 /*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 14:43:18 by jomanuel          #+#    #+#             */
-/*   Updated: 2025/01/25 12:18:20 by jomanuel         ###   ########.fr       */
+/*   Updated: 2025/01/26 10:06:34 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_two(t_stack **stack_a)
+void	sort_two(t_stack **stack)
 {
 	t_stack *tmp;
 
-	tmp = *stack_a;
+	tmp = *stack;
 	if (tmp->content > tmp->next->content)
-		ra(stack_a);
+		ra(stack);
 }
 
 void	sort_three(t_stack **stack_a)
