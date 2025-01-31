@@ -6,7 +6,7 @@
 /*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 12:47:21 by jomanuel          #+#    #+#             */
-/*   Updated: 2025/01/26 20:13:41 by jomanuel         ###   ########.fr       */
+/*   Updated: 2025/01/31 15:58:32 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	is_sorted(t_stack **stack)
 
 int	max_value(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 	int		max;
 
 	tmp = *stack;

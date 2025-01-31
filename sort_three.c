@@ -6,7 +6,7 @@
 /*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 14:43:18 by jomanuel          #+#    #+#             */
-/*   Updated: 2025/01/26 10:06:34 by jomanuel         ###   ########.fr       */
+/*   Updated: 2025/01/31 19:19:44 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	sort_two(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	tmp = *stack;
 	if (tmp->content > tmp->next->content)
-		ra(stack);
+		ra(stack, 0);
 }
 
 void	sort_three(t_stack **stack_a)
@@ -32,18 +32,18 @@ void	sort_three(t_stack **stack_a)
 	third = tmp->next->next->content;
 	if (tmp->content < second && second > third && third > tmp->content)
 	{
-		sa(stack_a);
-		ra(stack_a);
+		sa(stack_a, 0);
+		ra(stack_a, 0);
 	}
 	else if (tmp->content > second && second < third && third > tmp->content)
-		sa(stack_a);
+		sa(stack_a, 0);
 	else if (tmp->content < second && second > third && third < tmp->content)
-		rra(stack_a);
+		rra(stack_a, 0);
 	else if (tmp->content > second && second < third && third < tmp->content)
-		ra(stack_a);
+		ra(stack_a, 0);
 	else if (tmp->content > second && second > third && third < tmp->content)
 	{
-		ra(stack_a);
-		sa(stack_a);
+		ra(stack_a, 0);
+		sa(stack_a, 0);
 	}
 }

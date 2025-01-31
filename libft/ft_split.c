@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jomanuel <jomanuel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 10:54:37 by jomanuel          #+#    #+#             */
-/*   Updated: 2024/11/15 16:59:19 by jomanuel         ###   ########.fr       */
+/*   Updated: 2025/01/31 17:16:33 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,6 @@ size_t	wordlen(const char *s, char c)
 	return (i);
 }
 
-void	freeall(char **array)
-{
-	int	i;
-
-	i = 0;
-	while (array[i])
-	{
-		free(array[i]);
-		i++;
-	}
-	free(array);
-}
-
 char	**my_split(char **array, char const *s, char c)
 {
 	char	*str;
@@ -70,7 +57,7 @@ char	**my_split(char **array, char const *s, char c)
 			str = (char *)ft_calloc((wordlen(s + j, c) + 1), sizeof(char));
 			if (str == NULL)
 			{
-				freeall(array);
+				ft_freeall(array);
 				return (NULL);
 			}
 			ft_strlcpy(str, s + j, wordlen(s + j, c) + 1);

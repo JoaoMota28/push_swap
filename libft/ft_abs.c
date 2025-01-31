@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 16:01:00 by jomanuel          #+#    #+#             */
-/*   Updated: 2025/01/31 18:40:36 by jomanuel         ###   ########.fr       */
+/*   Created: 2025/01/31 12:31:53 by jomanuel          #+#    #+#             */
+/*   Updated: 2025/01/31 15:39:01 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	terminate(int code)
+int	ft_abs(int val)
 {
-	write(2, "Error\n", 6);
-	exit(code);
+	if (val >= 0)
+		return (val);
+	else
+		return (-val);
 }

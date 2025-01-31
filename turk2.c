@@ -6,7 +6,7 @@
 /*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 15:20:17 by jomanuel          #+#    #+#             */
-/*   Updated: 2025/01/29 13:04:35 by jomanuel         ###   ########.fr       */
+/*   Updated: 2025/01/31 19:23:19 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	min_cost(t_stack **stack)
 		}
 		tmp = tmp->next;
 	}
-	return min;
+	return (min);
 }
 
 t_stack	*min_node(t_stack **stack_a)
@@ -55,44 +55,44 @@ t_stack	*min_node(t_stack **stack_a)
 				break ;
 		tmp = tmp->next;
 	}
-	return tmp;
+	return (tmp);
 }
 
-void	rotatestacks3(t_stack **st_a, t_stack **st_b, t_stack *tmp)
+void	rotatestacks_4(t_stack **st_a, t_stack **st_b, t_stack *tmp)
 {
 	if (tmp->flag == 4)
 	{
 		while (tmp->a_cost > 0 && tmp->b_cost > 0)
 		{
-			rrr(st_a, st_b);
+			rrr(st_a, st_b, 0);
 			tmp->a_cost--;
 			tmp->b_cost--;
 		}
 		while (tmp->a_cost-- > 0)
-			rra(st_a);
+			rra(st_a, 0);
 		while (tmp->b_cost-- > 0)
-			rrb(st_b);
+			rrb(st_b, 0);
 	}
 }
 
-void	rotatestacks2(t_stack **st_a, t_stack **st_b, t_stack *tmp)
+void	rotatestacks_2_3(t_stack **st_a, t_stack **st_b, t_stack *tmp)
 {
 	if (tmp->flag == 2)
 	{
 		while (tmp->a_cost-- > 0)
-			ra(st_a);
+			ra(st_a, 0);
 		while (tmp->b_cost-- > 0)
-			rrb(st_b);
+			rrb(st_b, 0);
 	}
 	else if (tmp->flag == 3)
 	{
 		while (tmp->a_cost-- > 0)
-			rra(st_a);
+			rra(st_a, 0);
 		while (tmp->b_cost-- > 0)
-			rb(st_b);
+			rb(st_b, 0);
 	}
 	else
-		rotatestacks3(st_a, st_b, tmp);
+		rotatestacks_4(st_a, st_b, tmp);
 }
 
 void	rotate_stacks(t_stack **stack_a, t_stack **stack_b)
@@ -104,15 +104,15 @@ void	rotate_stacks(t_stack **stack_a, t_stack **stack_b)
 	{
 		while (tmp->a_cost > 0 && tmp->b_cost > 0)
 		{
-			rr(stack_a, stack_b);
+			rr(stack_a, stack_b, 0);
 			tmp->a_cost--;
 			tmp->b_cost--;
 		}
 		while (tmp->a_cost-- > 0)
-			ra(stack_a);
+			ra(stack_a, 0);
 		while (tmp->b_cost-- > 0)
-			rb(stack_b);
+			rb(stack_b, 0);
 	}
 	else
-		rotatestacks2(stack_a, stack_b, tmp);
+		rotatestacks_2_3(stack_a, stack_b, tmp);
 }

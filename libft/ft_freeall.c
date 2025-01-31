@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_freeall.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 09:19:30 by jomanuel          #+#    #+#             */
-/*   Updated: 2025/01/26 09:27:11 by jomanuel         ###   ########.fr       */
+/*   Created: 2025/01/31 17:15:47 by jomanuel          #+#    #+#             */
+/*   Updated: 2025/01/31 17:16:16 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-// add to libft?
-// correct original libft according to this one (the change)
-// if update libft, remove abs from this header
-
-int	ft_abs(int val)
+void	ft_freeall(char **array)
 {
-	if (val >= 0)
-		return (val);
-	else
-		return(-val);
-}
+	int	i;
 
-int	ft_bigger(int val1, int val2)
-{
-	if (val1 > val2)
-		return (val1);
-	else
-		return (val2);
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }

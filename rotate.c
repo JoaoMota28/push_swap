@@ -6,7 +6,7 @@
 /*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 11:46:41 by jomanuel          #+#    #+#             */
-/*   Updated: 2025/01/23 12:18:11 by jomanuel         ###   ########.fr       */
+/*   Updated: 2025/01/31 19:19:12 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,24 @@ void	rotate(t_stack **stack)
 	free(tmp);
 }
 
-void	ra(t_stack **stack_a)
+void	ra(t_stack **stack_a, int flag)
 {
 	rotate(stack_a);
-	write(1, "ra\n", 3);
+	if (flag == 0)
+		write(1, "ra\n", 3);
 }
 
-void	rb(t_stack **stack_b)
+void	rb(t_stack **stack_b, int flag)
 {
 	rotate(stack_b);
-	write(1, "rb\n", 3);
+	if (flag == 0)
+		write(1, "rb\n", 3);
 }
 
-void	rr(t_stack **stack_a, t_stack **stack_b)
+void	rr(t_stack **stack_a, t_stack **stack_b, int flag)
 {
 	rotate(stack_a);
 	rotate(stack_b);
-	write(1, "rr\n", 3);
+	if (flag == 0)
+		write(1, "rr\n", 3);
 }

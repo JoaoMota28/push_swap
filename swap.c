@@ -6,7 +6,7 @@
 /*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:56:16 by jomanuel          #+#    #+#             */
-/*   Updated: 2025/01/23 11:54:36 by jomanuel         ###   ########.fr       */
+/*   Updated: 2025/01/31 19:20:24 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,24 @@ void	swap(t_stack **stack)
 	tmp->next->content = tmp_content;
 }
 
-void	sa(t_stack **stack)
+void	sa(t_stack **stack, int flag)
 {
 	swap(stack);
-	write(1, "sa\n", 3);
+	if (flag == 0)
+		write(1, "sa\n", 3);
 }
 
-void	sb(t_stack **stack)
+void	sb(t_stack **stack, int flag)
 {
 	swap(stack);
-	write(1, "sb\n", 3);
+	if (flag == 0)
+		write(1, "sb\n", 3);
 }
 
-void	ss(t_stack **stack_a, t_stack **stack_b)
+void	ss(t_stack **stack_a, t_stack **stack_b, int flag)
 {
 	swap(stack_a);
 	swap(stack_b);
-	write(1, "ss\n", 3);
+	if (flag == 0)
+		write(1, "ss\n", 3);
 }

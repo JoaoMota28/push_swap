@@ -6,7 +6,7 @@
 /*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:08:50 by jomanuel          #+#    #+#             */
-/*   Updated: 2025/01/30 14:29:55 by jomanuel         ###   ########.fr       */
+/*   Updated: 2025/01/31 15:57:27 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,50 +49,48 @@ int	cost_dst(t_stack **stack, int cont)
 	return (tmp->index);
 }
 
-void	switch_case(t_stack *node, int src_s, int dst_s, int src_c, int dst_c)
+void	switch_case(t_stack *node, t_cost src, t_cost dst)
 {
-	if (src_c <= (src_s / 2) && dst_c <= (dst_s / 2))
+	if (src.cost <= (src.size / 2) && dst.cost <= (dst.size / 2))
 	{
-		node->a_cost = src_c;
-		node->b_cost = dst_c;
+		node->a_cost = src.cost;
+		node->b_cost = dst.cost;
 		node->flag = 1;
 	}
-	else if (src_c <= (src_s / 2) && dst_c > (dst_s / 2))
+	else if (src.cost <= (src.size / 2) && dst.cost > (dst.size / 2))
 	{
-		node->a_cost = src_c;
-		node->b_cost = dst_s - dst_c;
+		node->a_cost = src.cost;
+		node->b_cost = dst.size - dst.cost;
 		node->flag = 2;
 	}
-	else if (src_c > (src_s / 2) && dst_c <= (dst_s / 2))
+	else if (src.cost > (src.size / 2) && dst.cost <= (dst.size / 2))
 	{
-		node->a_cost = src_s - src_c;
-		node->b_cost = dst_c;
+		node->a_cost = src.size - src.cost;
+		node->b_cost = dst.cost;
 		node->flag = 3;
 	}
-	else if (src_c > (src_s / 2) && dst_c > (dst_s / 2))
+	else if (src.cost > (src.size / 2) && dst.cost > (dst.size / 2))
 	{
-		node->a_cost = src_s - src_c;
-		node->b_cost = dst_s - dst_c;
+		node->a_cost = src.size - src.cost;
+		node->b_cost = dst.size - dst.cost;
 		node->flag = 4;
 	}
 }
 
 void	update_cost(t_stack **stack_src, t_stack **stack_dst)
 {
-	int		src_size;
-	int		dst_size;
-	int		src_cost;
-	int		dst_cost;
+	t_cost	src;
+	t_cost	dst;
 	t_stack	*tmp;
 
 	tmp = *stack_src;
-	src_size = stack_len(stack_src);
-	dst_size = stack_len(stack_dst);
+	src.size = stack_len(stack_src);
+	dst.size = stack_len(stack_dst);
 	while (tmp != NULL)
 	{
-		src_cost = cost_src(stack_src, tmp->content);
-		dst_cost = cost_dst(stack_dst, tmp->content);
-		switch_case(tmp, src_size, dst_size, src_cost, dst_cost);
+		src.cost = cost_src(stack_src, tmp->content);
+		dst.cost = cost_dst(stack_dst, tmp->content);
+		switch_case(tmp, src, dst);
 		tmp = tmp->next;
 	}
 }

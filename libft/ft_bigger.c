@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_bigger.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 16:01:00 by jomanuel          #+#    #+#             */
-/*   Updated: 2025/01/31 18:40:36 by jomanuel         ###   ########.fr       */
+/*   Created: 2025/01/31 12:33:12 by jomanuel          #+#    #+#             */
+/*   Updated: 2025/01/31 12:33:33 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	terminate(int code)
+int	ft_bigger(int val1, int val2)
 {
-	write(2, "Error\n", 6);
-	exit(code);
+	if (val1 > val2)
+		return (val1);
+	else
+		return (val2);
 }

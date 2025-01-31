@@ -6,7 +6,7 @@
 /*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:19:29 by jomanuel          #+#    #+#             */
-/*   Updated: 2025/01/24 16:12:56 by jomanuel         ###   ########.fr       */
+/*   Updated: 2025/01/31 19:11:12 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ int	validation(int argc, char **argv)
 	i = 0;
 	while (i < argc)
 	{
+		if (argv[i][0] == '\0')
+			return (0);
 		if (!is_valid_arg(argv[i]))
 			return (0);
 		i++;
@@ -111,7 +113,7 @@ t_stack	*parse_args(int argc, char **argv)
 	if (!validation(argc, argv))
 	{
 		if (mode == 1)
-			freeall(argv);
+			ft_freeall(argv);
 		terminate(1);
 	}
 	stack_a = NULL;
