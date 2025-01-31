@@ -6,7 +6,7 @@
 /*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:50:19 by jomanuel          #+#    #+#             */
-/*   Updated: 2025/01/26 10:44:03 by jomanuel         ###   ########.fr       */
+/*   Updated: 2025/01/29 12:20:13 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ t_stack	*stack_new(int number)
 		return (NULL);
 	new->content = number;
 	new->index = 0;
-	new->cost = 0;
-	new->times = 0;
+	new->a_cost = 0;
+	new->b_cost = 0;
 	new->flag = 0;
 	new->next = NULL;
 	return (new);

@@ -6,7 +6,7 @@
 /*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:08:50 by jomanuel          #+#    #+#             */
-/*   Updated: 2025/01/26 22:09:36 by jomanuel         ###   ########.fr       */
+/*   Updated: 2025/01/30 14:29:55 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,26 +53,26 @@ void	switch_case(t_stack *node, int src_s, int dst_s, int src_c, int dst_c)
 {
 	if (src_c <= (src_s / 2) && dst_c <= (dst_s / 2))
 	{
-		node->cost = src_c + dst_c;
-		node->times = src_c;
+		node->a_cost = src_c;
+		node->b_cost = dst_c;
 		node->flag = 1;
 	}
-	else if (src_c <= (src_s / 2) && dst_c >= (dst_s / 2))
+	else if (src_c <= (src_s / 2) && dst_c > (dst_s / 2))
 	{
-		node->cost = (src_c + (dst_s - dst_c));
-		node->times = src_c;
+		node->a_cost = src_c;
+		node->b_cost = dst_s - dst_c;
 		node->flag = 2;
 	}
-	else if (src_c >= (src_s / 2) && dst_c <= (dst_s / 2))
+	else if (src_c > (src_s / 2) && dst_c <= (dst_s / 2))
 	{
-		node->cost = ((src_s - src_c) + dst_c);
-		node->times = src_c;
+		node->a_cost = src_s - src_c;
+		node->b_cost = dst_c;
 		node->flag = 3;
 	}
-	else if (src_c >= (src_s / 2) && dst_c >= (dst_s / 2))
+	else if (src_c > (src_s / 2) && dst_c > (dst_s / 2))
 	{
-		node->cost = (src_s - src_c) + (dst_s - dst_c);
-		node->times = src_c;
+		node->a_cost = src_s - src_c;
+		node->b_cost = dst_s - dst_c;
 		node->flag = 4;
 	}
 }

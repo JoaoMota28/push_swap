@@ -6,7 +6,7 @@
 /*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 12:19:27 by jomanuel          #+#    #+#             */
-/*   Updated: 2025/01/23 17:25:13 by jomanuel         ###   ########.fr       */
+/*   Updated: 2025/01/27 22:36:05 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,16 @@ void	rev_rotate(t_stack **stack)
 {
 	t_stack	*tmp;
 	t_stack	*last;
-	int		content;
 
 	if (stack_len(stack) < 2)
 		return ;
 	tmp = *stack;
 	while (tmp->next->next != NULL)
 		tmp = tmp->next;
-	last = tmp;
-	tmp = tmp->next;
-	content = tmp->content;
-	last->next = NULL;
-	free(tmp);
-	stack_add_front(stack, stack_new(content));
+	last = tmp->next;
+	tmp->next = NULL;
+	last->next = *stack;
+	*stack = last;
 }
 
 void	rra(t_stack **stack_a)

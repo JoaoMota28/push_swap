@@ -6,7 +6,7 @@
 /*   By: jomanuel <jomanuel@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 12:42:36 by jomanuel          #+#    #+#             */
-/*   Updated: 2025/01/26 20:13:57 by jomanuel         ###   ########.fr       */
+/*   Updated: 2025/01/29 11:59:04 by jomanuel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ typedef struct s_stack
 {
 	int				content;
 	int				index;
-	int				cost;
-	int				times;
+	int				a_cost;
+	int				b_cost;
 	int				flag;
 	struct s_stack	*next;
 }	t_stack;
